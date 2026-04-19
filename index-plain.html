@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Comensales</title>
+</head>
+<body>
+    <section id="body">
+        <h2>Restaurante</h2>
+        <div>
+            <button id="body_btAgregarComensal">Agregar Comensal</button>
+        </div>
+        <hr>
+        <div>
+            <u><h3>Reporte:</h3></u>
+            <p><strong>Total de costos:</strong> <span id="body_lblTotalCostos">0</span>$</p>
+            <p><strong>Total de desayuno:</strong> <span id="body_lblTotalDesayuno">0</span>$</p>
+            <p><strong>Total de almuerzo:</strong> <span id="body_lblTotalAlmuerzo">0</span>$</p>
+            <p><strong>Total de ambos:</strong> <span id="body_lblTotalAmbos">0</span>$</p>
+            <p><strong>Porcentaje de desayuno:</strong> <span id="body_lblPrctDesayuno">0</span>%</p>
+            <p><strong>Porcentaje de almuerzo:</strong> <span id="body_lblPrctAlmuerzo">0</span>%</p>
+            <p><strong>Porcentaje de ambos:</strong> <span id="body_lblPrctAmbos">0</span>%</p>
+            <p><strong>Porcentaje con descuento:</strong> <span id="body_lblPrctDescuento">0</span>%</p>
+            <p><strong>Porcentaje sin descuento:</strong> <span id="body_lblPrctSinDescuento">0</span>%</p>
+        </div>
+    </section>
+        <section id="Comensal" hidden style="margin-top: 15px; border: 1px solid #ccc; padding: 10px; width: 400px;">
+            <h3 id="Comensal_idComensal">Procesar Comensal</h3>
+            <div>
+                <label><strong>Nombre:</strong>
+                    <input type="text" id="Comensal_inNombre" placeholder="Ej: Ruco">
+                </label>
+            </div>
+            <div>
+                <label><strong>Apellido:</strong>
+                    <input type="text" id="Comensal_inApellido" placeholder="Ej: Upa">
+                </label>
+            </div>
+            <div>
+                <label><strong>Cédula:</strong>
+                    <input type="text" id="Comensal_inCedula" placeholder="Ej: 32696969">
+                </label>
+            </div>
+            <div>
+                <label><strong>Sexo:</strong>
+                    <select required id="Comensal_inSexo">
+                        <option value="" disabled selected>Selecciona una opción</option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Femenino</option>
+                    </select>
+                </label>
+            </div>
+            <div>
+                <label><strong>Fecha de Nacimiento:</strong></label>
+                    <input type="date" id="Comensal_inFechaNacimiento">
+            </div>
+            <div>
+                <label><strong>Turno de Comida:</strong>
+                    <select required id="Comensal_inTurnoComida">
+                        <option value="" disabled selected>Selecciona una opción</option>
+                        <option value="1">Desayuno</option>
+                        <option value="2">Almuerzo</option>
+                        <option value="3">Ambos</option>
+                    </select>
+                </label>
+            </div>
+        </div>
+            <br>
+            <div>
+                <button id="Comensal_btAceptar">Aceptar</button>
+                <button id="Comensal_btCancelar">Cancelar</button>
+            </div>
+    </section>
+    <section>
+        <script type="module">
+            import Cl_cRestaurante from "./dist/controllers/Cl_cRestaurante.js";
+            import Cl_cComensal from "./dist/controllers/Cl_cComensal.js";
+            import Cl_vRestaurante from "./dist/views/Cl_vRestaurante.js";
+            import Cl_vComensal from "./dist/views/Cl_vComensal.js";
+
+            const vistaRestaurante = new Cl_vRestaurante();
+            const vistaComensal = new Cl_vComensal();
+
+            const controladorComensal = new Cl_cComensal(vistaComensal);
+            new Cl_cRestaurante(vistaRestaurante, controladorComensal);
+        </script>
+    </section>
+</body>
+</html>
