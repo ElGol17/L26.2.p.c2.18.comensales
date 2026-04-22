@@ -1,8 +1,5 @@
 import { I_vComensal } from "../interfaces/I_vComensal.js";
 import Cl_mComensal from "../models/Cl_mComensal.js";
-import Cl_mComensalDesayuno from "../models/Cl_mComensalDesayuno.js";
-import Cl_mComensalAlmuerzo from "../models/Cl_mComensalAlmuerzo.js";
-import Cl_mComensalAmbos from "../models/Cl_mComensalAmbos.js";
 
 export default class Cl_cComensal{
     private vista: I_vComensal;
@@ -28,18 +25,9 @@ export default class Cl_cComensal{
             cedula: this.vista.cedula,
             sexo: this.vista.sexo,
             fechaNacimiento: this.vista.fechaNacimiento,
+            turnoComida: this.vista.turnoComida,
         };
-        switch(this.vista.turnoComida){
-            case 1:
-                comensal = new Cl_mComensalDesayuno(datos);
-                break;
-            case 2:
-                comensal = new Cl_mComensalAlmuerzo(datos);
-                break;
-            case 3:
-                comensal = new Cl_mComensalAmbos(datos);
-                break;
-        }
+        comensal = new Cl_mComensal(datos);
         this.callback(comensal);
         this.vista.ocultar();
     }

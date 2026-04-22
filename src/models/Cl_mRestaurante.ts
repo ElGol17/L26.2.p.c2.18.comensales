@@ -14,19 +14,19 @@ export default class Cl_mRestaurante{
     constructor(){}
     procesarComensal(c: Cl_mComensal){
         this._contComensales++;
-        this._acumCostos += c.costoFinal();
+        this._acumCostos += c.costo;
         switch (c.turnoComida){
             case 1:
                 this._contDesayuno++;
-                this._acumDesayuno += c.costoFinal();
+                this._acumDesayuno += c.costo;
                 break;
             case 2:
                 this._contAlmuerzo++;
-                this._acumAlmuerzo += c.costoFinal();
+                this._acumAlmuerzo += c.costo;
                 break;
             case 3:
                 this._contAmbos++;
-                this._acumAmbos += c.costoFinal();
+                this._acumAmbos += c.costo;
                 break;
         }
         if (c.aplicaDescuento()){
