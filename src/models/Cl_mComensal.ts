@@ -1,7 +1,7 @@
 import Cl_mPersona from "./Cl_mPersona.js";
 
 export default class Cl_mComensal extends Cl_mPersona{
-    protected _turnoComida: 1 | 2 | 3;
+    private _turnoComida: 1 | 2 | 3;
     constructor({nombre, apellido, cedula, sexo, fechaNacimiento, turnoComida}:{nombre: string, apellido: string, cedula: number, sexo: "M" | "F", fechaNacimiento: Date, turnoComida: 1 | 2 | 3}){
         super({nombre, apellido, cedula, sexo, fechaNacimiento});   
         this._turnoComida = turnoComida;
