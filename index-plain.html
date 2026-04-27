@@ -73,18 +73,9 @@
             </div>
     </section>
     <section>
-        <script type="module">
-            import Cl_cRestaurante from "./dist/controllers/Cl_cRestaurante.js";
-            import Cl_cComensal from "./dist/controllers/Cl_cComensal.js";
-            import Cl_vRestaurante from "./dist/views/Cl_vRestaurante.js";
-            import Cl_vComensal from "./dist/views/Cl_vComensal.js";
-
-            const vistaRestaurante = new Cl_vRestaurante();
-            const vistaComensal = new Cl_vComensal();
-
-            const controladorComensal = new Cl_cComensal(vistaComensal);
-            new Cl_cRestaurante(vistaRestaurante, controladorComensal);
-        </script>
+        <div>
+        <script type="module" src="./dist/principalPlain.js"></script>
+        </div>
     </section>
 </body>
 </html>
