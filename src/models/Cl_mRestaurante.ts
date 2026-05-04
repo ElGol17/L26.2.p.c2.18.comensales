@@ -1,93 +1,98 @@
 import Cl_mComensal from "./Cl_mComensal.js";
 
 export default class Cl_mRestaurante{
-    private _acumCostos: number = 0;
-    private _acumDesayuno: number = 0;
-    private _acumAlmuerzo: number = 0;
-    private _acumAmbos: number = 0;
-    private _contComensales: number = 0;
-    private _contDesayuno: number = 0;
-    private _contAlmuerzo: number = 0;
-    private _contAmbos: number = 0;
-    private _contDescuento: number = 0;
-    private _contSinDescuento: number = 0;
+    private acumCostos: number = 0;
+    private acumDesayuno: number = 0;
+    private acumAlmuerzo: number = 0;
+    private acumAmbos: number = 0;
+    private acumDescuentos: number = 0;
+    private contComensales: number = 0;
+    private contDesayuno: number = 0;
+    private contAlmuerzo: number = 0;
+    private contAmbos: number = 0;
+    private contDescuento: number = 0;
+    private contSinDescuento: number = 0;
     constructor(){}
     procesarComensal(c: Cl_mComensal){
-        this._contComensales++;
-        this._acumCostos += c.costo;
-        switch (c.turnoComida){
+        this.contComensales++;
+        this.acumCostos += c.costo();
+        this.acumDescuentos += c.descuento();
+        switch (c.tComida){
             case 1:
-                this._contDesayuno++;
-                this._acumDesayuno += c.costo;
+                this.contDesayuno++;
+                this.acumDesayuno += c.costo();
                 break;
             case 2:
-                this._contAlmuerzo++;
-                this._acumAlmuerzo += c.costo;
+                this.contAlmuerzo++;
+                this.acumAlmuerzo += c.costo();
                 break;
             case 3:
-                this._contAmbos++;
-                this._acumAmbos += c.costo;
+                this.contAmbos++;
+                this.acumAmbos += c.costo();
                 break;
         }
         if (c.aplicaDescuento()){
-            this._contDescuento++;
+            this.contDescuento++;
         }
         else{
-            this._contSinDescuento++;
+            this.contSinDescuento++;
         }
     }
-    get acumCostos(): number{
-        return this._acumCostos;
+    get acumuladorCostos(): number{
+        return this.acumCostos;
     }
-    get acumDesayuno(): number{
-        return this._acumDesayuno;
+    get acumuladorDesayuno(): number{
+        return this.acumDesayuno;
     }
-    get acumAlmuerzo(): number{
-        return this._acumAlmuerzo;
+    get acumuladorAlmuerzo(): number{
+        return this.acumAlmuerzo;
     }
-    get acumAmbos(): number{
-        return this._acumAmbos;
+    get acumuladorAmbos(): number{
+        return this.acumAmbos;
+    }
+    get acumuladorDescuentos(): number{
+        return this.acumDescuentos;
     }
     prctDesayuno(): number{
-        let total = this._contDesayuno + this._contAlmuerzo + this._contAmbos;
+        let total = this.contDesayuno + this.contAlmuerzo + this.contAmbos;
         if (total > 0){
-            return (this._contDesayuno * 100 )/total;
+            return (this.contDesayuno * 100 )/total;
         }
         else{
             return 0;
         }
     }
     prctAlmuerzo(): number{
-        let total = this._contDesayuno + this._contAlmuerzo + this._contAmbos;
+        let total = this.contDesayuno + this.contAlmuerzo + this.contAmbos;
         if (total > 0){
-            return (this._contAlmuerzo * 100 )/total;
+            return (this.contAlmuerzo * 100 )/total;
         }
         else{
             return 0;
         }
     }
     prctAmbos(): number{
-        let total = this._contDesayuno + this._contAlmuerzo + this._contAmbos;
+        let total = this.contDesayuno + this.contAlmuerzo + this.contAmbos;
         if (total > 0){
-            return (this._contAmbos * 100 )/total;
+            return (this.contAmbos * 100 )/total;
         }
         else{
             return 0;
         }
     }
     prctDescuento(): number{
-        let total = this._contDescuento + this._contSinDescuento;
+        let total = this.contDescuento + this.contSinDescuento;
         if (total > 0){
-            return (this._contDescuento * 100 )/total;
+            return (this.contDescuento * 100 )/total;
         }
         else{
             return 0;
         }
     }
     prctSinDescuento(): number{
-        let total = this._contDescuento + this._contSinDescuento;
+        let total = this.contDescuento + this.contSinDescuento;
         if (total > 0){
-            return (this._contSinDescuento * 100 )/total;
+            return (this.contSinDescuento * 100 )/total;
         }
         else{
             return 0;

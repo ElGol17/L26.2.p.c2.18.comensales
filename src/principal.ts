@@ -11,24 +11,21 @@ const vComensal = new Cl_vComensal();
 
 const cComensal = new Cl_cComensal(vComensal);
 
-mRestaurante.procesarComensal(new Cl_mComensal({ nombre: "José", apellido: "Martínez", cedula: 111, sexo: "M", fechaNacimiento: new Date(1951, 3, 12), turnoComida: 1 }));
-mRestaurante.procesarComensal(new Cl_mComensal({ nombre: "Carlos", apellido: "Pérez", cedula: 222, sexo: "M", fechaNacimiento: new Date(1998, 2, 21), turnoComida: 3 }));
-mRestaurante.procesarComensal(new Cl_mComensal({ nombre: "Maria", apellido: "García", cedula: 333, sexo: "F", fechaNacimiento: new Date(2002, 10, 16), turnoComida: 2 }));
-mRestaurante.procesarComensal(new Cl_mComensal({ nombre: "Gustavo", apellido: "González", cedula: 444, sexo: "M", fechaNacimiento: new Date(2006, 7, 14), turnoComida: 2 }));
-mRestaurante.procesarComensal(new Cl_mComensal({ nombre: "Daniela", apellido: "Torres", cedula: 555, sexo: "F", fechaNacimiento: new Date(2005, 2, 1), turnoComida: 1 }));
-mRestaurante.procesarComensal(new Cl_mComensal({ nombre: "Brandon", apellido: "Figueroa", cedula: 666, sexo: "M", fechaNacimiento: new Date(1941, 9, 11), turnoComida: 1 }));
-mRestaurante.procesarComensal(new Cl_mComensal({ nombre: "Génesis", apellido: "Vidal", cedula: 777, sexo: "M", fechaNacimiento: new Date(1975, 6, 30), turnoComida: 1 }));
-mRestaurante.procesarComensal(new Cl_mComensal({ nombre: "César", apellido: "Peñaloza", cedula: 888, sexo: "M", fechaNacimiento: new Date(2003, 5, 26), turnoComida: 3 }));
-mRestaurante.procesarComensal(new Cl_mComensal({ nombre: "Kevin", apellido: "Latiegue", cedula: 999, sexo: "M", fechaNacimiento: new Date(1967, 9, 6), turnoComida: 2 }));
-mRestaurante.procesarComensal(new Cl_mComensal({ nombre: "Gabriela", apellido: "López", cedula: 1000, sexo: "F", fechaNacimiento: new Date(1994, 3, 12), turnoComida: 2 }));
-mRestaurante.procesarComensal(new Cl_mComensal({ nombre: "Luis", apellido: "Álvarez", cedula: 1111, sexo: "M", fechaNacimiento: new Date(1973, 1, 28), turnoComida: 1 }));
-mRestaurante.procesarComensal(new Cl_mComensal({ nombre: "Sebastián", apellido: "Díaz", cedula: 2222, sexo: "M", fechaNacimiento: new Date(1995, 5, 8), turnoComida: 3 }));
+mRestaurante.procesarComensal(new Cl_mComensal({ nombre: "Ana", apellido: "Gil", cedula: 8888, sexo: "F", fechaNacimiento: new Date(2001, 5, 15), turnoComida: 1 }));
+mRestaurante.procesarComensal(new Cl_mComensal({ nombre: "Mery", apellido: "Paz", cedula: 6666, sexo: "F", fechaNacimiento: new Date(2009, 6, 25), turnoComida: 1 }));
+mRestaurante.procesarComensal(new Cl_mComensal({ nombre: "Juan", apellido: "Sanz", cedula: 9999, sexo: "M", fechaNacimiento: new Date(1965, 8, 20), turnoComida: 1 }));
+mRestaurante.procesarComensal(new Cl_mComensal({ nombre: "Paty", apellido: "Ortiz", cedula: 3333, sexo: "F", fechaNacimiento: new Date(1975, 4, 14), turnoComida: 3 }));
+mRestaurante.procesarComensal(new Cl_mComensal({ nombre: "Liz", apellido: "Ramos", cedula: 2222, sexo: "F", fechaNacimiento: new Date(2005, 0, 3), turnoComida: 1 }));
+mRestaurante.procesarComensal(new Cl_mComensal({ nombre: "Raul", apellido: "Méndez", cedula: 5555, sexo: "M", fechaNacimiento: new Date(1995, 9, 11), turnoComida: 2 }));
+mRestaurante.procesarComensal(new Cl_mComensal({ nombre: "Tony", apellido: "Flores", cedula: 7777, sexo: "M", fechaNacimiento: new Date(1964, 7, 7), turnoComida: 3 }));
+mRestaurante.procesarComensal(new Cl_mComensal({ nombre: "Gaby", apellido: "López", cedula: 1111, sexo: "F", fechaNacimiento: new Date(1966, 6, 19), turnoComida: 1 }));
 
 vRestaurante.reportar({
-    totalCostos: mRestaurante.acumCostos,
-    totalDesayuno: mRestaurante.acumDesayuno,
-    totalAlmuerzo: mRestaurante.acumAlmuerzo,
-    totalAmbos: mRestaurante.acumAmbos,
+    totalCostos: mRestaurante.acumuladorCostos,
+    totalDesayuno: mRestaurante.acumuladorDesayuno,
+    totalAlmuerzo: mRestaurante.acumuladorAlmuerzo,
+    totalAmbos: mRestaurante.acumuladorAmbos,
+    totalDescuentos: mRestaurante.acumuladorDescuentos,
     prctDesayuno: mRestaurante.prctDesayuno(),
     prctAlmuerzo: mRestaurante.prctAlmuerzo(),
     prctAmbos: mRestaurante.prctAmbos(),
@@ -41,10 +38,11 @@ vRestaurante.btAgregarComensal.onclick = () => {
         if (nuevoComensal) {
             mRestaurante.procesarComensal(nuevoComensal);
             vRestaurante.reportar({
-                totalCostos: mRestaurante.acumCostos,
-                totalDesayuno: mRestaurante.acumDesayuno,
-                totalAlmuerzo: mRestaurante.acumAlmuerzo,
-                totalAmbos: mRestaurante.acumAmbos,
+                totalCostos: mRestaurante.acumuladorCostos,
+                totalDesayuno: mRestaurante.acumuladorDesayuno,
+                totalAlmuerzo: mRestaurante.acumuladorAlmuerzo,
+                totalAmbos: mRestaurante.acumuladorAmbos,
+                totalDescuentos: mRestaurante.acumuladorDescuentos,
                 prctDesayuno: mRestaurante.prctDesayuno(),
                 prctAlmuerzo: mRestaurante.prctAlmuerzo(),
                 prctAmbos: mRestaurante.prctAmbos(),

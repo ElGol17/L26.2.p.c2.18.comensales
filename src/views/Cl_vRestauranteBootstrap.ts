@@ -5,6 +5,7 @@ export default class Cl_vRestaurante implements I_vRestaurante{
     lblTotalDesayuno: HTMLElement;
     lblTotalAlmuerzo: HTMLElement;
     lblTotalAmbos: HTMLElement;
+    lblTotalDescuentos: HTMLElement;
     lblPrctDesayuno: HTMLElement;
     lblPrctAlmuerzo: HTMLElement;
     lblPrctAmbos: HTMLElement;
@@ -18,6 +19,7 @@ export default class Cl_vRestaurante implements I_vRestaurante{
         this.lblTotalDesayuno = document.getElementById("body_lblTotalDesayuno") as HTMLElement;
         this.lblTotalAlmuerzo = document.getElementById("body_lblTotalAlmuerzo") as HTMLElement;
         this.lblTotalAmbos = document.getElementById("body_lblTotalAmbos") as HTMLElement;
+        this.lblTotalDescuentos = document.getElementById("body_lblTotalDescuentos") as HTMLElement;
         this.lblPrctDesayuno = document.getElementById("body_lblPrctDesayuno") as HTMLElement;
         this.lblPrctAlmuerzo = document.getElementById("body_lblPrctAlmuerzo") as HTMLElement;
         this.lblPrctAmbos = document.getElementById("body_lblPrctAmbos") as HTMLElement;
@@ -28,11 +30,12 @@ export default class Cl_vRestaurante implements I_vRestaurante{
     onAgregarComensal(callback: () => void): void {
         this.btAgregarComensal.onclick = callback;
     }
-    reportar({totalCostos, totalDesayuno, totalAlmuerzo, totalAmbos, prctDesayuno, prctAlmuerzo, prctAmbos, prctDescuento, prctSinDescuento}: {totalCostos: number, totalDesayuno: number, totalAlmuerzo: number, totalAmbos: number, prctDesayuno: number, prctAlmuerzo: number, prctAmbos: number, prctDescuento: number, prctSinDescuento: number}): void{
+    reportar({totalCostos, totalDesayuno, totalAlmuerzo, totalAmbos, totalDescuentos, prctDesayuno, prctAlmuerzo, prctAmbos, prctDescuento, prctSinDescuento}: {totalCostos: number, totalDesayuno: number, totalAlmuerzo: number, totalAmbos: number, totalDescuentos: number, prctDesayuno: number, prctAlmuerzo: number, prctAmbos: number, prctDescuento: number, prctSinDescuento: number}): void{
         this.lblTotalCostos.innerHTML = `${totalCostos}`;
         this.lblTotalDesayuno.innerHTML = `${totalDesayuno}`;
         this.lblTotalAlmuerzo.innerHTML = `${totalAlmuerzo}`;
         this.lblTotalAmbos.innerHTML = `${totalAmbos}`;
+        this.lblTotalDescuentos.innerHTML = `${totalDescuentos.toFixed(2)}`
         this.lblPrctDesayuno.innerHTML = `${prctDesayuno.toFixed(2)}`;
         this.lblPrctAlmuerzo.innerHTML = `${prctAlmuerzo.toFixed(2)}`;
         this.lblPrctAmbos.innerHTML = `${prctAmbos.toFixed(2)}`;

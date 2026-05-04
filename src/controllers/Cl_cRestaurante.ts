@@ -15,7 +15,7 @@ export default class Cl_cRestaurante{
         this.cComensal.solicitarComensal((comensal) => {
             if (comensal !== null){
                 this.mRestaurante.procesarComensal(comensal);
-                this.vRestaurante.reportar({totalCostos: this.mRestaurante.acumCostos, totalDesayuno: this.mRestaurante.acumDesayuno, totalAlmuerzo: this.mRestaurante.acumAlmuerzo, totalAmbos: this.mRestaurante.acumAmbos, prctDesayuno: this.mRestaurante.prctDesayuno(), prctAlmuerzo: this.mRestaurante.prctAlmuerzo(), prctAmbos: this.mRestaurante.prctAmbos(), prctDescuento: this.mRestaurante.prctDescuento(), prctSinDescuento: this.mRestaurante.prctSinDescuento()});
+                this.vRestaurante.reportar({totalCostos: this.mRestaurante.acumuladorCostos, totalDesayuno: this.mRestaurante.acumuladorDesayuno, totalAlmuerzo: this.mRestaurante.acumuladorAlmuerzo, totalAmbos: this.mRestaurante.acumuladorAmbos, totalDescuentos: this.mRestaurante.acumuladorDescuentos, prctDesayuno: this.mRestaurante.prctDesayuno(), prctAlmuerzo: this.mRestaurante.prctAlmuerzo(), prctAmbos: this.mRestaurante.prctAmbos(), prctDescuento: this.mRestaurante.prctDescuento(), prctSinDescuento: this.mRestaurante.prctSinDescuento()});
             }
         });
     }

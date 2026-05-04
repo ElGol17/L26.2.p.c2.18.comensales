@@ -11,7 +11,7 @@ export default class Cl_mPersona{
         this._sexo = sexo;
         this._fechaNacimiento = fechaNacimiento;
     }
-    get edad(): number{
+    edad(): number{
         const hoy = new Date();
         let edad = hoy.getFullYear() - this._fechaNacimiento.getFullYear();
         const mes = hoy.getMonth() - this._fechaNacimiento.getMonth();
